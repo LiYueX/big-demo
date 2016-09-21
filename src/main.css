@@ -72,6 +72,9 @@ line-height: 8vh;
   text-align: center;
   font-family: verdana,"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.corner span{
+  color: #6f2382;
+}
 .back{
   line-height: 12vh;
   font-size: 18px;

@@ -12,8 +12,11 @@ class About extends React.Component {
     }
   }
   inputBlur(e){
-    console.log(e.target.value);
-    searchGit(e.target.value).
+    let username = e.target.value;
+    if(username==''){
+      username = 'liyuex'
+    }
+    searchGit(username).
     then((data) => {
       this.setState({data : data.getGit , wait : false})
     });

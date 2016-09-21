@@ -10,4 +10,26 @@ function searchGit(username){
     alert(error);
   })
 }
-export {searchGit}
+
+function getCards(){
+  return axios.get(`https://raw.githubusercontent.com/LiYueX/demodata/master/card/card.json`)
+  .then( (res) => (
+    { cardsData : res.data}
+    )
+  )
+  .catch(function (error) {
+    alert(error);
+  })
+}
+
+function getWorks(num){
+  return axios.get(`https://raw.githubusercontent.com/LiYueX/demodata/master/blogs/${num}.md?${Math.random()}`)
+  .then( (res) => (
+    { worksData : res.data}
+    )
+  )
+  .catch(function (error) {
+    alert(error);
+  })
+}
+export {searchGit,getCards,getWorks}

@@ -7,9 +7,9 @@
   heigh: 100vh;
 }
 .content-sidebar{
-  min-width: 156px;
   width: 23vw;
   height: 100vh;
+  min-width: 156px;
   background-color: #0097A7;
 }
 .content-sidebar h2{
@@ -22,6 +22,7 @@
   margin: 0;
   padding: 0;
   display: block;
+  flex-shrink: 1;
 }
 .sidebar-nav .glyphicon{
   margin-right: 1vw;
@@ -88,7 +89,10 @@ line-height: 8vh;
   flex-grow: 1;
   overflow-y: scroll;
   min-width: 380px;
-
+  width:77vw;
+}
+.work-txt{
+  padding: 1vw 2vw;
 }
 .content-footer{
   height: 12vh;
@@ -132,12 +136,18 @@ line-height: 8vh;
   flex-direction: column;
 
 }
+.about-cont-txt{
+  width: 57.4394%;
+}
 @media (max-width: 680px){
   .content-sidebar{
     display: none;
   }
   .content-header,.content-footer{
     display: flex;
+  }
+  .content-main{
+    width: 100%;
   }
   .home-root{
     width: 100%;
@@ -147,9 +157,98 @@ line-height: 8vh;
     background-size: auto 100%;
   }
 }
+@media (max-width : 681px) and (min-width : 420px){
+  .cardPic{
+    width: 50%;
+    float: left;
+  }
+}
 @media (min-width: 681px){
   .content-wrap{
     display: flex;
     flex-direction: row;
   }
+}
+
+.wait{
+  text-align: center;
+  color: #12a3b3;
+}
+.post-content {
+  color: #6d6d6d;
+  line-height: 1.8;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 10xp;
+  border: 1px solid #ddd;
+  background-color: #a2dee4;
+  padding-top: 1em;
+  padding-bottom: 30px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.post-content h1 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 1.1em;
+  margin-bottom: 1.1em;
+}
+.post-content ol {
+  padding-left: 20px;
+}
+.post-content ul {
+  padding-left: 20px;
+}
+.post-content li {
+  list-style-type: circle;
+}
+.post-content pre {
+  background-color: #f8f8f8;
+  display: block;
+  padding: 20px;
+  font-size: 14px;
+  color: #777777;
+  overflow-x: auto;
+  font-weight: 600;
+}
+.post-content pre code {
+  background-color: none;
+}
+.post-content p code {
+  font-size: 14px;
+  background-color: pink;
+  padding: 4px;
+}
+.post-content blockquote {
+  border-left: 5px solid #00bcd4;
+  font-style: italic;
+  font-weight: 400;
+  padding-left: 20px;
+  line-height: 30px;
+  margin-bottom: 33px;
+  margin-left: 0;
+}
+.post-content p {
+  color: #606060;
+  font-weight: 400;
+  line-height: 1.95;
+  margin-bottom: 20px;
+}
+.post-content img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+.post-content a {
+  color: #ff4081;
+  text-decoration: none;
+}
+.post-content a:hover {
+  color: #444;
+}
+.post-content a.video {
+  display: block;
+  line-height: 2.3;
+  text-align: center;
 }

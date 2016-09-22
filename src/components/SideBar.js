@@ -31,12 +31,7 @@ class SideBar extends React.Component {
     })
   }
   render () {
-    let backArrow={
-      width: '50px',
-      height: '40px',
-      margin:'20px auto',
-      cursor:'pointer'
-    }
+
     return(
       <div className='content-sidebar'>
         <h2 className='corner'>Li Yuexi's@ <span>{this.state.title}</span></h2>
@@ -61,8 +56,8 @@ class SideBar extends React.Component {
             </Link>
           </li>
         </ul>
-        <div style={backArrow} onClick={this.btnClick.bind(this)}>
-          <img src={arrow} style={{width:'60%'}}/>
+        <div className='backArrow' onClick={this.btnClick.bind(this)}>
+
         </div>
       </div>
     )

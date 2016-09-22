@@ -105,7 +105,19 @@ line-height: 8vh;
   min-width: 380px;
   display: none;
 }
-
+.backArrow{
+    width: 40px;
+    height: 40px;
+    margin:20px auto;
+    cursor:pointer;
+    background-image: url(./images/back.png);
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.backArrow:hover{
+    background-image: url(./images/back1.png);
+}
 .footer-nav{
   display: flex;
   justify-content: space-around;

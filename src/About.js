@@ -28,7 +28,6 @@ class About extends React.Component {
     });
   }
   render () {
-    console.log(this.state.data);
     let styles={
       root:{
         backgroundColor:'teal',

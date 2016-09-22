@@ -4,11 +4,9 @@ import { hashHistory } from 'react-router';
 class Cards extends React.Component {
   btnClick(){
     let url = this.props.url;
-    console.log(url);
     hashHistory.push(`/work/${url}`)
   }
   render () {
-    console.log(this.props.datas);
     return(
       <div className="cardPic col-sm-6 col-md-6 col-lg-4">
         <div className="thumbnail">

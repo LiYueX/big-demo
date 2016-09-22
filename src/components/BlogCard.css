@@ -1,0 +1,49 @@
+.blogRoot{
+  width: 80%;
+  margin: 40px auto;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+}
+.blogIndex{
+  border-radius:10px 10px 0 0 ;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #61bcc5;
+  height: 90px;
+  padding-top: 2px;
+
+}
+.blogIndex span{
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  display: block;
+  border-radius: 50%;
+  margin: 10px auto;
+  border:3px solid #fff;
+  color: #b7fbfb;
+}
+.blogMain{
+  padding: 30px;
+}
+.blogTitle{
+  line-height: 60px;
+}
+.bolgMore{
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #448AFF;
+  color: #fff;
+  cursor: pointer;
+}
+.bolgMore:hover{
+  background-color: #61bcc5;
+  color: #222;
+}

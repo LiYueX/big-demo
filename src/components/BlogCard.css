@@ -29,21 +29,36 @@
   padding: 30px;
 }
 .blogTitle{
+  display: inline-block;
+  font-size: 25px;
+  padding: 0 10px;
+  border-radius: 15px;
   line-height: 60px;
+  color: #558186;
+}
+.blogTitle span{
+  display: inline-block;
+  margin-right: 10px;
+  color: #d224ac;
+}
+.blogContent{
+  text-indent: 2em;
 }
 .bolgMore{
-  width: 80px;
-  height: 30px;
-  line-height: 30px;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   display: inline-block;
   margin-top: 30px;
   border-radius: 10px;
-  background-color: #448AFF;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   cursor: pointer;
+  border: 2px solid #558186;
 }
 .bolgMore:hover{
-  background-color: #61bcc5;
-  color: #222;
+  background-color: #448AFF;
+  color: #fff;
+  border: none;
 }

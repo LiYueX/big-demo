@@ -30,20 +30,27 @@
 }
 .blogTitle{
   line-height: 60px;
+  color: #1b808a;
+  font-size: 20px;
+}
+.blogTitle span{
+  color: #1dd811;
+  margin-right: 1em;
 }
 .bolgMore{
-  width: 80px;
-  height: 30px;
-  line-height: 30px;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   display: inline-block;
   margin-top: 30px;
   border-radius: 10px;
-  background-color: #448AFF;
-  color: #fff;
+  background-color: #fff;
+  color: #0c6771;
   cursor: pointer;
+  border: 2px solid #0c6771;
 }
 .bolgMore:hover{
-  background-color: #61bcc5;
-  color: #222;
+  background-color: #0c6771;
+  color: #fff;
 }

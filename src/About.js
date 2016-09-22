@@ -8,7 +8,12 @@ class About extends React.Component {
     this.state={
       data : {},
       wait : false,
-      username:'liyuex'
+      username:'liyuex',
+      name:'正在加载...',
+      login:'正在加载...',
+      bios:'正在加载...',
+      email:'正在加载...',
+      blog:'正在加载...'
     }
   }
   inputBlur(e){
@@ -41,6 +46,13 @@ class About extends React.Component {
     }else{
       bios= bio.split('：');
     }
+    this.setState({
+      name:this.state.data.name,
+      login:this.state.data.login,
+      bios:bios[1],
+      email:this.state.data.email,
+      blog:this.state.data.blog
+    })
     return(
       <div >
         <div className='avatar-container'>
@@ -51,11 +63,11 @@ class About extends React.Component {
           <div className='about-cont-txt'>
             <h2>个人简介：</h2>
             <div className='person'>
-              <h3>姓名：<span>{this.state.data.name}</span></h3>
-              <h3>英文：<span>{this.state.data.login}</span></h3>
-              <h3>微信：<span>{bios[1]}</span></h3>
-              <h3>邮箱：<span>{this.state.data.email}</span></h3>
-              <h3>个人网站：<span>{this.state.data.blog}</span></h3>
+              <h3>姓名：<span>{this.state.name}</span></h3>
+              <h3>英文：<span>{this.state.login}</span></h3>
+              <h3>微信：<span>{this.state.bios}</span></h3>
+              <h3>邮箱：<span>{this.state.email}</span></h3>
+              <h3>个人网站：<span>{this.state.blog}</span></h3>
             </div>
           </div>
           <div className='about-cont-txt'>

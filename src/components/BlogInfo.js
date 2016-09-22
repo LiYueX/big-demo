@@ -17,7 +17,6 @@ class BlogInfo extends React.Component {
     }
   }
   componentDidMount(){
-    console.log(this.props.params.url);
     getBlogInfos(this.props.params.url)
     .then((data) => {
       this.setState({data : data.infoData, wait : false})

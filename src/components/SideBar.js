@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import React  from 'react';
-import back  from '../images/back.png';
+import arrow from '../images/back.png'
+import arrow1 from '../images/back1.png'
 class SideBar extends React.Component {
   constructor(){
     super();
@@ -8,6 +9,10 @@ class SideBar extends React.Component {
       title:'Home'
     }
   }
+  btnClick(){
+    this.context.router.goBack();
+  }
+
   componentWillReceiveProps(){
     this.setState({
       title:
@@ -25,11 +30,13 @@ class SideBar extends React.Component {
 
     })
   }
-  backClick(){
-    // 回退
-    this.context.router.goBack();
-  }
   render () {
+    let backArrow={
+      width: '50px',
+      height: '40px',
+      margin:'20px auto',
+      cursor:'pointer'
+    }
     return(
       <div className='content-sidebar'>
         <h2 className='corner'>Li Yuexi's@ <span>{this.state.title}</span></h2>
@@ -53,10 +60,10 @@ class SideBar extends React.Component {
               <span className='	glyphicon glyphicon-user'></span>About
             </Link>
           </li>
-          <div className='backArrow' onClick={this.backClick.bind(this)}>
-            <img style={{width:'14%'}} src={back}/>
-          </div>
         </ul>
+        <div style={backArrow} onClick={this.btnClick.bind(this)}>
+          <img src={arrow} style={{width:'60%'}}/>
+        </div>
       </div>
     )
   }

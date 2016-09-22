@@ -1,6 +1,6 @@
 import React  from 'react'
+import Echarts  from './components/Echarts'
 import {searchGit } from './Utils/helpers'
-import Echarts from './components/Echarts'
 import './About.css'
 class About extends React.Component {
   constructor(){
@@ -41,7 +41,6 @@ class About extends React.Component {
     }else{
       bios= bio.split('：');
     }
-    let dataSet=[100,20,30,0,0,0];
     return(
       <div >
         <div className='avatar-container'>
@@ -52,10 +51,10 @@ class About extends React.Component {
           <div className='about-cont-txt'>
             <h2>个人简介：</h2>
             <div className='person'>
-              <h3>姓名：<span>{this.state.data.name}</span></h3>
-              <h3>英文：<span>{this.state.data.login}</span></h3>
-              <h3>微信：<span>{bios[1]}</span></h3>
-              <h3>邮箱：<span>{this.state.data.email}</span></h3>
+              <h3>姓名：<span>{this.state.wait ? 'loading' : this.state.data.name}</span></h3>
+              <h3>英文：<span>{this.state.wait ? 'loading' : this.state.data.login}</span></h3>
+              <h3>微信：<span>{this.state.wait ? 'loading' : bios[1]}</span></h3>
+              <h3>邮箱：<span>{this.state.wait ? 'loading' : this.state.data.email}</span></h3>
               <h3>个人网站：<span>{this.state.data.blog}</span></h3>
             </div>
           </div>
@@ -74,8 +73,8 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-      <Echarts/>
-        </div>
+        <Echarts style={{width:'90%',margin:'0 auto',height:'500px'}}/>
+    </div>
     )
   }
 }

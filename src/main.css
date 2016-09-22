@@ -67,11 +67,6 @@ line-height: 8vh;
   background-color: rgba(0,0,0,0.2);
   border-radius: 5px;
 }
-.backArrow{
-  text-align: center;
-  cursor:pointer;
-  margin-top: 10px;
-}
 .corner{
   color: #FFF;
   text-align: center;
@@ -99,6 +94,7 @@ line-height: 8vh;
   min-width: 380px;
   width:77vw;
 }
+
 .work-txt{
   padding: 1vw 2vw;
 }

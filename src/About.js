@@ -1,6 +1,6 @@
 import React  from 'react'
-
 import {searchGit } from './Utils/helpers'
+import Echarts from './components/Echarts'
 import './About.css'
 class About extends React.Component {
   constructor(){
@@ -41,7 +41,7 @@ class About extends React.Component {
     }else{
       bios= bio.split('：');
     }
-
+    let dataSet=[100,20,30,0,0,0];
     return(
       <div >
         <div className='avatar-container'>
@@ -74,7 +74,8 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-    </div>
+      <Echarts/>
+        </div>
     )
   }
 }

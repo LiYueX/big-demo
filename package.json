@@ -41,6 +41,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.0.0",
     "css-loader": "^0.24.0",
+    "echarts": "^3.2.3",
     "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.11.3",

@@ -10,7 +10,7 @@ class Cards extends React.Component {
     return(
       <div className="cardPic col-sm-6 col-md-6 col-lg-4">
         <div className="thumbnail">
-          <img src={this.props.imgUrl} />
+          <img onClick={this.btnClick.bind(this)}  style={{cursor:'pointer'}} src={this.props.imgUrl} />
           <div className="caption">
             <h3>{this.props.title}</h3>
             <p>{this.props.desc}</p>

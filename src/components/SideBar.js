@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import React  from 'react';
+import back  from '../images/back.png';
 class SideBar extends React.Component {
   constructor(){
     super();
@@ -23,6 +24,10 @@ class SideBar extends React.Component {
       this.context.router.isActive('/blogs')?'Blogs':'Works'
 
     })
+  }
+  backClick(){
+    // 回退
+    this.context.router.goBack();
   }
   render () {
     return(
@@ -48,6 +53,9 @@ class SideBar extends React.Component {
               <span className='	glyphicon glyphicon-user'></span>About
             </Link>
           </li>
+          <div className='backArrow' onClick={this.backClick.bind(this)}>
+            <img style={{width:'14%'}} src={back}/>
+          </div>
         </ul>
       </div>
     )

@@ -41,6 +41,7 @@ class About extends React.Component {
     }else{
       bios= bio.split('：');
     }
+    let web = 'https://'+this.state.data.blog;
     return(
       <div >
         <div className='avatar-container'>
@@ -55,7 +56,7 @@ class About extends React.Component {
               <h3>英文：<span>{this.state.wait ? 'loading' : this.state.data.login}</span></h3>
               <h3>微信：<span>{this.state.wait ? 'loading' : bios[1]}</span></h3>
               <h3>邮箱：<span>{this.state.wait ? 'loading' : this.state.data.email}</span></h3>
-              <h3>个人网站：<span>{this.state.data.blog}</span></h3>
+              <h3>个人网站：<a  href={web}>{this.state.data.blog}</a></h3>
             </div>
           </div>
           <div className='about-cont-txt'>

@@ -1,10 +1,12 @@
 import React  from 'react';
 import Echarts  from './components/Echarts';
-import {AppBarExampleIcon}  from './components/MaterialCard';
+import MaterialCard  from './components/MaterialCard';
 import {searchGit } from './Utils/helpers';
 import './About.css';
 
 import { Button } from 'react-bootstrap';
+
+import AutoComplete from 'material-ui/AutoComplete';
 
 class About extends React.Component {
   constructor(){
@@ -12,9 +14,17 @@ class About extends React.Component {
     this.state={
       data : {},
       wait : false,
-      username:'liyuex'
+      username:'liyuex',
+      dataSource: [],
     }
   }
+  handleUpdateInput(e){
+   this.setState({
+     dataSource: [
+       e.target.value
+     ]
+   });
+ }
   inputBlur(e){
     let username = e.target.value;
     if(username==''){
@@ -48,9 +58,18 @@ class About extends React.Component {
     let web = 'https://'+this.state.data.blog;
     return(
       <div >
-        <div className='avatar-container'>
+        <div  className='avatar-container'>
           <img className="avatar" src={this.state.data.avatar_url}/>
-          <input className='search' defaultValue='' onBlur={this.inputBlur.bind(this)} type='text' placeholder='输入您要查询的用户名 ' />
+        </div>
+        <div style={{textAlign:'center'}}>
+          <AutoComplete
+            hintText="Github 用户名"
+            dataSource={this.state.dataSource}
+            onUpdateInput={this.handleUpdateInput}
+            floatingLabelText="Github 用户名"
+            fullWidth={true}
+            onBlur={this.inputBlur.bind(this)}
+            />
         </div>
         <div className='about-cont'>
           <div className='about-cont-txt'>
@@ -80,7 +99,8 @@ class About extends React.Component {
         </div>
         <Echarts />
         <Button bsStyle='primary'>primary</Button>
-        <AppBarExampleIcon />
+        <MaterialCard />
+
     </div>
     )
   }

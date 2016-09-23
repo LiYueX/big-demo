@@ -1,7 +1,11 @@
-import React  from 'react'
-import Echarts  from './components/Echarts'
-import {searchGit } from './Utils/helpers'
-import './About.css'
+import React  from 'react';
+import Echarts  from './components/Echarts';
+import {AppBarExampleIcon}  from './components/MaterialCard';
+import {searchGit } from './Utils/helpers';
+import './About.css';
+
+import { Button } from 'react-bootstrap';
+
 class About extends React.Component {
   constructor(){
     super();
@@ -74,7 +78,9 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-        <Echarts style={{width:'90%',margin:'0 auto',height:'500px'}}/>
+        <Echarts />
+        <Button bsStyle='primary'>primary</Button>
+        <AppBarExampleIcon />
     </div>
     )
   }

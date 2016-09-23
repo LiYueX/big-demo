@@ -3,12 +3,14 @@ import echarts from 'echarts';
 
 class Echarts extends React.Component {
   componentDidMount(){
-    var myChart = echarts.init(document.getElementById('main'));
-    myChart.setOption({
+    let myChart = echarts.init(document.getElementById('main'));
+    let  option={
       title:{
         show:true,
         text:'我的技能展示',
         left:'center',
+        target:'blank',
+        link:'http:liyuex.github.io/big-demo',
         textStyle:{
           color:'#2196F3'
         }
@@ -29,7 +31,7 @@ class Echarts extends React.Component {
       xAxis : [
         {
           type : 'category',
-          data : ['HTML', 'CSS', 'JS', 'React', 'Meteor', 'Node', 'Mongo'],
+          data : ['HTML', 'CSS', 'JS', 'React', 'Jquery', 'Node', 'Mongo'],
           axisTick: {
             alignWithLabel: true
           }
@@ -53,7 +55,11 @@ class Echarts extends React.Component {
           data:[96, 98, 88, 90, 70, 70, 50]
         }
       ]
-    });
+    }
+    myChart.setOption(option);
+    window.onresize=function(){
+      myChart.resize();
+    }
   }
   render () {
     return(

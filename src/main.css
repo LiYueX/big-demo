@@ -5,6 +5,7 @@
   min-width: 380px;
   box-sizing: border-box;
   heigh: 100vh;
+  background: rgb(224, 224, 224);
 }
 .content-sidebar{
   width: 23vw;

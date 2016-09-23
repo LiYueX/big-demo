@@ -18,10 +18,10 @@ class About extends React.Component {
       dataSource: [],
     }
   }
-  handleUpdateInput(e){
+  handleUpdateInput(value){
    this.setState({
      dataSource: [
-       e.target.value
+       value,
      ]
    });
  }
@@ -66,7 +66,7 @@ class About extends React.Component {
             hintText="Github 用户名"
             dataSource={this.state.dataSource}
             onUpdateInput={this.handleUpdateInput}
-            floatingLabelText="Github 用户名"
+            floatingLabelText="Search Github 用户名"
             fullWidth={true}
             onBlur={this.inputBlur.bind(this)}
             />

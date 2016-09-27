@@ -11,7 +11,7 @@ class BlogCard extends React.Component {
         <h1 className='blogIndex'><span>{this.props.index}</span></h1>
         <div className='blogMain'>
           <h4 className='blogTitle' ><span className='glyphicon glyphicon-leaf'></span>{this.props.title}</h4>
-          <div className='blogContent'>{this.props.content}</div>
+          <div className='blogContent'>{this.props.desc}</div>
           <Link to={address} className='bolgMore' style={{textDecoration: 'none'}}>查看更多</Link>
         </div>
       </div>

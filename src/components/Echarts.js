@@ -52,7 +52,7 @@ class Echarts extends React.Component {
           name:'技能熟练度',
           type:'bar',
           barWidth: '60%',
-          data:[96, 98, 88, 90, 70, 70, 50]
+          data:[96, 98, 88, 90, 70, 70, 70]
         }
       ]
     }

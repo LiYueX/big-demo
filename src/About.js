@@ -35,6 +35,16 @@ class About extends React.Component {
         })
       });
   }
+  componentDidMount(){
+    searchGit('liyuex')
+      .then((resData) => {
+        this.setState({
+          input:'',
+          data:resData.getData,
+          wait:2
+        })
+      });
+  }
   render () {
     let gitContent = this.state.wait==0 ? '' :
       this.state.wait==1 ? <div style={{textAlign:'center'}}><CircularProgress size={1.5} /></div> :

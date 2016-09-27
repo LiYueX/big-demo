@@ -8,7 +8,7 @@ import Pic3 from '../images/avatar.jpg';
 class Pic extends React.Component {
   render () {
     return(
-      <Carousel style={{height:'200px',overflow:'hidden'}}>
+      <Carousel interval={2000} controls={true} style={{interval:2000,height:'200px',overflow:'hidden'}}>
         <Carousel.Item>
           <img style={{display:'block',width:'100%',height:'300px'}} src={Pic1}/>
           <Carousel.Caption>

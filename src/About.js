@@ -1,107 +1,85 @@
-import React  from 'react';
-import Echarts  from './components/Echarts';
-import MaterialCard  from './components/MaterialCard';
-import {searchGit } from './Utils/helpers';
-import './About.css';
+import React from 'react';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+import CircularProgress from 'material-ui/CircularProgress';
 
-import { Button } from 'react-bootstrap';
-
-import AutoComplete from 'material-ui/AutoComplete';
+import Pic from './components/Pic';
+import Search from './components/Search';
+import Echarts from './components/Echarts';
+import {searchGit} from './Utils/helpers';
 
 class About extends React.Component {
   constructor(){
     super();
     this.state={
-      data : {},
-      wait : false,
-      username:'liyuex',
-      dataSource: [],
+      input:'',
+      data:{},
+      wait:0
     }
   }
-  handleUpdateInput(value){
-   this.setState({
-     dataSource: [
-       value,
-     ]
-   });
- }
-  inputBlur(e){
-    let username = e.target.value;
-    if(username==''){
-      username = 'liyuex'
-    }
-    searchGit(username).
-    then((data) => {
-      this.setState({data : data.getGit , wait : false})
-    });
+  handleChange(e){
+    this.setState({input:e.target.value})
   }
-  componentDidMount(){
-    searchGit(this.state.username).
-    then((data) => {
-      this.setState({data : data.getGit , wait : false})
-    });
+  handleSubmit(e){
+    this.setState({
+      wait:1
+    })
+    e.preventDefault();
+    let account = this.state.input;
+    searchGit(account)
+      .then((resData) => {
+        this.setState({
+          input:'',
+          data:resData.getData,
+          wait:2
+        })
+      });
   }
   render () {
+    let gitContent = this.state.wait==0 ? '' :
+      this.state.wait==1 ? <div style={{textAlign:'center'}}><CircularProgress size={1.5} /></div> :
+      <Search info={this.state.data}/>
     let styles={
       root:{
-        backgroundColor:'teal',
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.1) 0px 1px 4px',
+        maxWidth:'760px',
+        margin:'10px auto',
+        marginTop:'72px',
+        padding:'20px'
+      },
+      title:{
+        color:'#00BCD4'
+      },
+      search:{
+        padding:'10px',
+        textAlign:'center',
+        maxWidth:'90%',
+        margin:'0 auto'
+      },
+      field:{
+        width:'50%',
+        marginRight:'20px'
       }
-
     }
-    let bio = this.state.data.bio;
-    let bios=[1,2];
-    if(bio==null){
-      bios[1]=null
-    }else{
-      bios= bio.split('：');
-    }
-    let web = 'https://'+this.state.data.blog;
     return(
-      <div >
-        <div  className='avatar-container'>
-          <img className="avatar" src={this.state.data.avatar_url}/>
-        </div>
-        <div style={{textAlign:'center'}}>
-          <AutoComplete
-            hintText="Github 用户名"
-            dataSource={this.state.dataSource}
-            onUpdateInput={this.handleUpdateInput}
-            floatingLabelText="Search Github 用户名"
-            fullWidth={true}
-            onBlur={this.inputBlur.bind(this)}
-            />
-        </div>
-        <div className='about-cont'>
-          <div className='about-cont-txt'>
-            <h2>个人简介：</h2>
-            <div className='person'>
-              <h3>姓名：<span>{this.state.wait ? 'loading' : this.state.data.name}</span></h3>
-              <h3>英文：<span>{this.state.wait ? 'loading' : this.state.data.login}</span></h3>
-              <h3>微信：<span>{this.state.wait ? 'loading' : bios[1]}</span></h3>
-              <h3>邮箱：<span>{this.state.wait ? 'loading' : this.state.data.email}</span></h3>
-              <h3>个人网站：<a  href={web}>{this.state.data.blog}</a></h3>
-            </div>
+      <div>
+        <Pic />
+        <div style={styles.root}>
+          <h2 style={styles.title}>Search Github Info</h2>
+          <div style={styles.search}>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              <TextField hintText="search github"
+                style={styles.field}
+                value={this.state.input}
+                onChange={this.handleChange.bind(this)}
+                inputStyle={{color:'#00BCD4'}}/>
+                <FlatButton label="搜索" primary={true} type='submit'/>
+            </form>
           </div>
-          <div className='about-cont-txt'>
-            <h2>个性名片：</h2>
-            <div className='cards'>
-              <span className='btn btn-success btn1'>电影</span>
-              <span className='btn btn-primary btn2'>音乐</span>
-              <span className='btn btn-warning btn3'>手机控</span>
-              <span className='btn btn-info btn4'>篮球</span>
-              <span className='btn btn-danger btn5'>爱狗</span>
-              <span className='btn btn-primary btn6'>潜力股</span>
-              <span className='btn btn-warning btn7'>低调</span>
-              <span className='btn btn-info btn8'>桌游</span>
-              <span className='btn btn-success btn9'>文艺青年</span>
-            </div>
-          </div>
+          {gitContent}
+          <Echarts />
         </div>
-        <Echarts />
-        <Button bsStyle='primary'>primary</Button>
-        <MaterialCard />
-
-    </div>
+      </div>
     )
   }
 }

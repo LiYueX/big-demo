@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数值计算</title>
+	<style>
+		td,table{
+			border:1px solid #b3b7ba;
+			border-collapse:collapse;
+			text-align: center;
+			font-size: 16px;
+		}
+		td{
+			min-width: 60px;
+			padding: 10px;
+		}
+		td:nth-child(even){
+			color:#0372ff;
+		}
+		td:nth-child(even){
+			color:#0372ff;
+		}
+		tr:nth-child(even){
+			background-color: #eef1f6;
+		}
+		td[contentEditable="true"]:hover{
+			background-color: #b4d9e2;
+		}
+		td:focus{
+			outline: none;
+		}
+		.indez{
+			color:red;
+		}
+		form{
+			float: left;
+		} 
+		.a{
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.a #hang{
+			width: 72px;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    background-color: #fff;
+		    background-image: none;
+		    border-radius: 4px;
+		    border: 1px solid #bfcbd9;
+		    box-sizing: border-box;
+		    color: #1f2d3d;
+		    font-size: inherit;
+		    height: 36px;
+		    line-height: 1;
+		    outline: 0;
+		    padding: 3px 10px;
+		    text-align: center;
+		    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+		}
+		button{
+			display: inline-block;
+		    line-height: 1;
+		    white-space: nowrap;
+		    cursor: pointer;
+		    background: #fff;
+		    border: 1px solid #c4c4c4;
+		    color: #1f2d3d;
+		    margin: 0;
+		    padding: 10px 15px;
+		    border-radius: 4px;
+		    color: #fff;
+		    background-color: #20a0ff;
+		    border-color: #20a0ff;
+			margin: 0 20px;
+		}
+		.form1{
+			float: right;
+		}
+		.ok{
+			background-color: rgb(46, 179, 152);
+		}
+		.forms{
+			width: 900px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		label{
+			display: inline-block;
+			text-align: right;
+		    vertical-align: middle;
+		    float: left;
+		    font-size: 16px;
+		    color: #48576a;
+		    line-height: 1;
+		    padding: 11px 12px 11px 0;
+		    box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="a">
+		<button class="shang">生成表</button>
+		<input type="text" placeholder="行数" id="hang" value="10">
+		<button class="ok">转换表</button>
+	</div>
+	<div class="forms">
+		<form class='form'  action="">
+			<table class="table">
+			</table>
+		</form>
+		<form  class='form1' action="">
+			<table class="table1">
+			</table>
+		</form>
+	</div>
+	
+	
+	<script src="https://ql.zulong.com/js/jquery-1.11.1.js"></script>
+	<script>
+		window.onload=function(){
+
+			$('.shang').click(function(){
+				$('.table').empty()
+				var i = Number($('#hang').val())
+				for(var j=0;j<i;j++){
+					var str = 	'<tr class="lasttr">'+
+									'<td class="indez">'+(j+1)+'</td>'+
+									'<td contentEditable="true"></td>'+
+									'<td contentEditable="true"></td>'+
+									'<td contentEditable="true"></td>'+
+									'<td contentEditable="true"></td>'+
+								'</tr>'
+					$('.table').append(str)
+				}
+			})
+			$('.ok').click(function(){
+				var set = [];
+				$('.table1').empty()
+				$('.table tr').each(function() {
+				    var row = [];
+				    $(this).find('td[contentEditable="true"]').each(function() {
+				        row.push($(this).text());
+				    });
+				    set.push(row);
+				});
+				console.log(set)
+				for(var i=0,len=set.length;i<len;i++){
+					var str = 	'<tr class="lasttr">'
+									
+					for(var j=0;j<4;j++){
+						var wishu = Math.ceil(Math.random()*4)/10//加减三位
+						console.log(wishu)
+						if(Math.random()>0.5){
+							set[i][j] = (Number(set[i][j]) + Number(wishu)).toFixed(1)
+						}else{
+							set[i][j] = (Number(set[i][j]) - Number(wishu)).toFixed(1)
+						}
+						str = str+'<td>'+set[i][j]+'</td>'
+						// set[i][j]
+					}
+					str = str + '<td class="indez">'+(i+1)+'</td>'+'</tr>'
+					$('.table1').append(str)
+				}
+			})
+		}
+	</script>
+</body>
+</html>
